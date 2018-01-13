@@ -1,0 +1,14 @@
+Logisim ROM Image Generator
+
+Input file format:
+numberOfInputs numberOfOutputs
+input1 output1
+.
+.
+.
+
+All inputs are in decimal.
+Input don't cares not supported.
+Ignore output don't cares.
+
+sample input files: simpleInput.txt combinationalInput.txt
