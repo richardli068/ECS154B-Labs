@@ -3,58 +3,25 @@
 This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
 <lib desc="#Wiring" name="0">
     <tool name="Splitter">
-      <a name="fanout" val="1"/>
-      <a name="incoming" val="32"/>
       <a name="appear" val="center"/>
-      <a name="bit0" val="none"/>
-      <a name="bit1" val="none"/>
-      <a name="bit2" val="none"/>
-      <a name="bit3" val="none"/>
-      <a name="bit4" val="none"/>
-      <a name="bit5" val="none"/>
-      <a name="bit6" val="none"/>
-      <a name="bit7" val="none"/>
-      <a name="bit8" val="none"/>
-      <a name="bit9" val="none"/>
-      <a name="bit10" val="none"/>
-      <a name="bit11" val="none"/>
-      <a name="bit12" val="none"/>
-      <a name="bit13" val="none"/>
-      <a name="bit14" val="none"/>
-      <a name="bit15" val="none"/>
-      <a name="bit16" val="none"/>
-      <a name="bit17" val="none"/>
-      <a name="bit18" val="none"/>
-      <a name="bit19" val="none"/>
-      <a name="bit20" val="none"/>
-      <a name="bit21" val="none"/>
-      <a name="bit22" val="none"/>
-      <a name="bit23" val="none"/>
-      <a name="bit24" val="none"/>
-      <a name="bit25" val="none"/>
-      <a name="bit26" val="none"/>
-      <a name="bit27" val="none"/>
-      <a name="bit28" val="none"/>
-      <a name="bit29" val="none"/>
-      <a name="bit30" val="none"/>
-      <a name="bit31" val="none"/>
+      <a name="bit0" val="1"/>
+      <a name="bit1" val="0"/>
     </tool>
     <tool name="Probe">
-      <a name="facing" val="west"/>
-      <a name="radix" val="10unsigned"/>
-      <a name="label" val="PC"/>
+      <a name="facing" val="south"/>
+      <a name="label" val="blah"/>
     </tool>
     <tool name="Tunnel">
       <a name="facing" val="east"/>
-      <a name="width" val="32"/>
-      <a name="label" val="Add"/>
+      <a name="width" val="3"/>
+      <a name="label" val="Clock"/>
     </tool>
     <tool name="Clock">
       <a name="facing" val="north"/>
     </tool>
     <tool name="Constant">
-      <a name="width" val="5"/>
-      <a name="value" val="0x0"/>
+      <a name="width" val="6"/>
+      <a name="value" val="0x3f"/>
     </tool>
   </lib>
   <lib desc="#Gates" name="1"/>
@@ -84,8 +51,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   </options>
   <mappings>
     <tool lib="6" map="Button2" name="Menu Tool"/>
-    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
     <tool lib="6" map="Button3" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
   </mappings>
   <toolbar>
     <tool lib="6" name="Poke Tool"/>
@@ -116,18 +83,18 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabelfont" val="SansSerif plain 12"/>
     <appear>
       <rect fill="none" height="130" stroke="#000000" stroke-width="2" width="100" x="50" y="50"/>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="77" y="95">Address</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="132" y="88">Read</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="130" y="98">data</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="68" y="140">Write</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="67" y="150">data</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="81" y="176">CLK</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="121" y="165">Mem</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="121" y="175">Read</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="101" y="62">Mem</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="101" y="72">Write</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="119" y="128">Data</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="120" y="136">memory</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="74" y="94">Address</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="135" y="89">Read</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="134" y="96">data</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="66" y="140">Write</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="66" y="147">data</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="81" y="176">CLK</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="120" y="167">Mem</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="121" y="175">Read</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="101" y="62">Mem</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="101" y="69">Write</text>
+      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="113" y="119">Data</text>
+      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="112" y="129">memory</text>
       <circ-port height="8" pin="220,210" width="8" x="46" y="86"/>
       <circ-port height="8" pin="220,270" width="8" x="46" y="136"/>
       <circ-port height="10" pin="440,210" width="10" x="145" y="85"/>
@@ -136,19 +103,35 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <circ-port height="8" pin="360,300" width="8" x="116" y="176"/>
       <circ-anchor facing="east" height="6" width="6" x="147" y="87"/>
     </appear>
-    <wire from="(300,250)" to="(300,300)"/>
     <wire from="(230,230)" to="(230,270)"/>
+    <wire from="(300,250)" to="(300,300)"/>
     <wire from="(230,230)" to="(270,230)"/>
-    <wire from="(340,250)" to="(340,310)"/>
     <wire from="(220,270)" to="(230,270)"/>
+    <wire from="(340,250)" to="(340,310)"/>
     <wire from="(360,250)" to="(360,300)"/>
     <wire from="(410,210)" to="(440,210)"/>
     <wire from="(220,210)" to="(270,210)"/>
+    <comp lib="4" loc="(410,210)" name="RAM">
+      <a name="dataWidth" val="32"/>
+      <a name="bus" val="separate"/>
+    </comp>
     <comp lib="0" loc="(440,210)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="32"/>
       <a name="label" val="Read Data"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(300,300)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="MemWrite"/>
+      <a name="labelloc" val="south"/>
+    </comp>
+    <comp lib="0" loc="(360,300)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="MemRead"/>
       <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(340,310)" name="Pin">
@@ -157,31 +140,15 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="CLK"/>
       <a name="labelloc" val="south"/>
     </comp>
-    <comp lib="0" loc="(220,270)" name="Pin">
-      <a name="width" val="32"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="Write Data"/>
-    </comp>
     <comp lib="0" loc="(220,210)" name="Pin">
       <a name="width" val="8"/>
       <a name="tristate" val="false"/>
       <a name="label" val="Address"/>
     </comp>
-    <comp lib="0" loc="(300,300)" name="Pin">
-      <a name="facing" val="north"/>
+    <comp lib="0" loc="(220,270)" name="Pin">
+      <a name="width" val="32"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="MemWrite"/>
-      <a name="labelloc" val="south"/>
-    </comp>
-    <comp lib="4" loc="(410,210)" name="RAM">
-      <a name="dataWidth" val="32"/>
-      <a name="bus" val="separate"/>
-    </comp>
-    <comp lib="0" loc="(360,300)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="MemRead"/>
-      <a name="labelloc" val="east"/>
+      <a name="label" val="Write Data"/>
     </comp>
   </circuit>
 </project>

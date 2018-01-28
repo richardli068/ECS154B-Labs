@@ -84,8 +84,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   </options>
   <mappings>
     <tool lib="6" map="Button2" name="Menu Tool"/>
-    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
     <tool lib="6" map="Button3" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
   </mappings>
   <toolbar>
     <tool lib="6" name="Poke Tool"/>
@@ -116,7 +116,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabelfont" val="SansSerif plain 12"/>
     <appear>
       <rect fill="none" height="75" stroke="#000000" stroke-width="2" width="30" x="50" y="55"/>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="65" y="96">PC</text>
+      <text font-family="SansSerif" font-size="12" font-weight="bold" text-anchor="middle" x="65" y="96">PC</text>
       <circ-port height="8" pin="250,230" width="8" x="46" y="86"/>
       <circ-port height="10" pin="350,220" width="10" x="75" y="85"/>
       <circ-anchor facing="east" height="6" width="6" x="77" y="87"/>
@@ -124,18 +124,15 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(250,230)" to="(270,230)"/>
     <wire from="(330,220)" to="(350,220)"/>
     <wire from="(300,230)" to="(310,230)"/>
+    <comp lib="0" loc="(250,230)" name="Pin">
+      <a name="width" val="32"/>
+      <a name="tristate" val="false"/>
+    </comp>
     <comp lib="0" loc="(350,220)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="8"/>
       <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(250,230)" name="Pin">
-      <a name="width" val="32"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="4" loc="(300,230)" name="Register">
-      <a name="width" val="32"/>
     </comp>
     <comp lib="0" loc="(310,230)" name="Splitter">
       <a name="incoming" val="32"/>
@@ -171,6 +168,9 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit29" val="1"/>
       <a name="bit30" val="1"/>
       <a name="bit31" val="1"/>
+    </comp>
+    <comp lib="4" loc="(300,230)" name="Register">
+      <a name="width" val="32"/>
     </comp>
   </circuit>
 </project>

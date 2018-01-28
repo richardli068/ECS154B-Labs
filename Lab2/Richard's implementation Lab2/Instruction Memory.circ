@@ -84,8 +84,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   </options>
   <mappings>
     <tool lib="6" map="Button2" name="Menu Tool"/>
-    <tool lib="6" map="Button3" name="Menu Tool"/>
     <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
+    <tool lib="6" map="Button3" name="Menu Tool"/>
   </mappings>
   <toolbar>
     <tool lib="6" name="Poke Tool"/>
@@ -116,23 +116,18 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabelfont" val="SansSerif plain 12"/>
     <appear>
       <rect fill="none" height="105" stroke="#000000" stroke-width="2" width="80" x="50" y="55"/>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="69" y="69">Read</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="98" y="101">Instruction</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="90" y="146">Instruction</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="91" y="154">memory</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="104" y="112">[31-0]</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="77" y="79">address</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="66" y="78">Read</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="102" y="106">Instruction</text>
+      <text font-family="SansSerif" font-size="14" font-weight="bold" text-anchor="middle" x="90" y="141">Instruction</text>
+      <text font-family="SansSerif" font-size="14" font-weight="bold" text-anchor="middle" x="91" y="150">memory</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="108" y="114">[31-0]</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="74" y="87">address</text>
       <circ-port height="8" pin="230,110" width="8" x="46" y="76"/>
       <circ-port height="10" pin="420,110" width="10" x="125" y="105"/>
       <circ-anchor facing="east" height="6" width="6" x="127" y="107"/>
     </appear>
     <wire from="(390,110)" to="(420,110)"/>
     <wire from="(230,110)" to="(250,110)"/>
-    <comp lib="0" loc="(230,110)" name="Pin">
-      <a name="width" val="8"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="Read address"/>
-    </comp>
     <comp lib="4" loc="(390,110)" name="ROM">
       <a name="dataWidth" val="32"/>
       <a name="contents">addr/data: 8 32
@@ -145,6 +140,11 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="32"/>
       <a name="label" val="Instruction"/>
       <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(230,110)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Read address"/>
     </comp>
   </circuit>
 </project>
