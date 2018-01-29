@@ -39,6 +39,11 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit30" val="none"/>
       <a name="bit31" val="none"/>
     </tool>
+    <tool name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="Cout1"/>
+      <a name="labelloc" val="east"/>
+    </tool>
     <tool name="Probe">
       <a name="facing" val="west"/>
       <a name="radix" val="10unsigned"/>
@@ -84,8 +89,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   </options>
   <mappings>
     <tool lib="6" map="Button2" name="Menu Tool"/>
-    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
     <tool lib="6" map="Button3" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
   </mappings>
   <toolbar>
     <tool lib="6" name="Poke Tool"/>
@@ -115,36 +120,33 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
     <appear>
-      <rect fill="none" height="105" stroke="#000000" stroke-width="2" width="80" x="50" y="55"/>
-      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="66" y="78">Read</text>
-      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="102" y="106">Instruction</text>
-      <text font-family="SansSerif" font-size="14" font-weight="bold" text-anchor="middle" x="90" y="141">Instruction</text>
-      <text font-family="SansSerif" font-size="14" font-weight="bold" text-anchor="middle" x="91" y="150">memory</text>
-      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="108" y="114">[31-0]</text>
-      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="74" y="87">address</text>
-      <circ-port height="8" pin="230,110" width="8" x="46" y="76"/>
-      <circ-port height="10" pin="420,110" width="10" x="125" y="105"/>
-      <circ-anchor facing="east" height="6" width="6" x="127" y="107"/>
+      <rect fill="none" height="75" stroke="#000000" stroke-width="2" width="30" x="50" y="55"/>
+      <text font-family="SansSerif" font-size="12" font-weight="bold" text-anchor="middle" x="65" y="96">PC</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="62" y="126">CLK</text>
+      <circ-port height="8" pin="250,230" width="8" x="46" y="86"/>
+      <circ-port height="10" pin="310,230" width="10" x="75" y="85"/>
+      <circ-port height="8" pin="280,270" width="8" x="56" y="126"/>
+      <circ-anchor facing="east" height="6" width="6" x="77" y="87"/>
     </appear>
-    <wire from="(390,110)" to="(420,110)"/>
-    <wire from="(230,110)" to="(250,110)"/>
-    <comp lib="4" loc="(390,110)" name="ROM">
-      <a name="dataWidth" val="32"/>
-      <a name="contents">addr/data: 8 32
-0
-</a>
+    <wire from="(250,230)" to="(270,230)"/>
+    <wire from="(280,250)" to="(280,270)"/>
+    <wire from="(300,230)" to="(310,230)"/>
+    <comp lib="0" loc="(250,230)" name="Pin">
+      <a name="width" val="32"/>
+      <a name="tristate" val="false"/>
     </comp>
-    <comp lib="0" loc="(420,110)" name="Pin">
+    <comp lib="0" loc="(280,270)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(310,230)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="32"/>
-      <a name="label" val="Instruction"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(230,110)" name="Pin">
-      <a name="width" val="8"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="Read address"/>
+    <comp lib="4" loc="(300,230)" name="Register">
+      <a name="width" val="32"/>
     </comp>
   </circuit>
 </project>

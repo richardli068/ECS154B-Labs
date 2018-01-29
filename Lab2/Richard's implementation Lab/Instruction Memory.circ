@@ -115,62 +115,38 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
     <appear>
-      <rect fill="none" height="75" stroke="#000000" stroke-width="2" width="30" x="50" y="55"/>
-      <text font-family="SansSerif" font-size="12" font-weight="bold" text-anchor="middle" x="65" y="96">PC</text>
-      <circ-port height="8" pin="250,230" width="8" x="46" y="86"/>
-      <circ-port height="10" pin="350,220" width="10" x="75" y="85"/>
-      <circ-anchor facing="east" height="6" width="6" x="77" y="87"/>
+      <rect fill="none" height="105" stroke="#000000" stroke-width="2" width="80" x="50" y="55"/>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="66" y="78">Read</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="102" y="106">Instruction</text>
+      <text font-family="SansSerif" font-size="14" font-weight="bold" text-anchor="middle" x="90" y="141">Instruction</text>
+      <text font-family="SansSerif" font-size="14" font-weight="bold" text-anchor="middle" x="91" y="150">memory</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="108" y="114">[31-0]</text>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="74" y="87">address</text>
+      <circ-port height="8" pin="230,110" width="8" x="46" y="76"/>
+      <circ-port height="10" pin="420,110" width="10" x="125" y="105"/>
+      <circ-anchor facing="east" height="6" width="6" x="127" y="107"/>
     </appear>
-    <wire from="(250,230)" to="(270,230)"/>
-    <wire from="(330,220)" to="(350,220)"/>
-    <wire from="(300,230)" to="(310,230)"/>
-    <comp lib="0" loc="(250,230)" name="Pin">
-      <a name="width" val="32"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(350,220)" name="Pin">
+    <wire from="(390,110)" to="(420,110)"/>
+    <wire from="(230,110)" to="(250,110)"/>
+    <comp lib="0" loc="(420,110)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
-      <a name="width" val="8"/>
+      <a name="width" val="32"/>
+      <a name="label" val="Instruction"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(310,230)" name="Splitter">
-      <a name="incoming" val="32"/>
-      <a name="appear" val="center"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="0"/>
-      <a name="bit3" val="0"/>
-      <a name="bit4" val="0"/>
-      <a name="bit5" val="0"/>
-      <a name="bit6" val="0"/>
-      <a name="bit7" val="0"/>
-      <a name="bit8" val="1"/>
-      <a name="bit9" val="1"/>
-      <a name="bit10" val="1"/>
-      <a name="bit11" val="1"/>
-      <a name="bit12" val="1"/>
-      <a name="bit13" val="1"/>
-      <a name="bit14" val="1"/>
-      <a name="bit15" val="1"/>
-      <a name="bit16" val="1"/>
-      <a name="bit17" val="1"/>
-      <a name="bit18" val="1"/>
-      <a name="bit19" val="1"/>
-      <a name="bit20" val="1"/>
-      <a name="bit21" val="1"/>
-      <a name="bit22" val="1"/>
-      <a name="bit23" val="1"/>
-      <a name="bit24" val="1"/>
-      <a name="bit25" val="1"/>
-      <a name="bit26" val="1"/>
-      <a name="bit27" val="1"/>
-      <a name="bit28" val="1"/>
-      <a name="bit29" val="1"/>
-      <a name="bit30" val="1"/>
-      <a name="bit31" val="1"/>
+    <comp lib="0" loc="(230,110)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Read address"/>
     </comp>
-    <comp lib="4" loc="(300,230)" name="Register">
-      <a name="width" val="32"/>
+    <comp lib="4" loc="(390,110)" name="ROM">
+      <a name="dataWidth" val="32"/>
+      <a name="contents">addr/data: 8 32
+20010008 34220005 3043ffff 612020 832822 223024 c33826 aca40064
+8ca80064 22482a 1265025 c00000d 200b0001 23ff0018 10c00003 a13022
+800000e 200c0001 3e00008 200d0001 200e0001
+</a>
     </comp>
   </circuit>
 </project>
