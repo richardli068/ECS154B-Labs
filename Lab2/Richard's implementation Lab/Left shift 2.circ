@@ -39,6 +39,11 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit30" val="none"/>
       <a name="bit31" val="none"/>
     </tool>
+    <tool name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="Cout1"/>
+      <a name="labelloc" val="east"/>
+    </tool>
     <tool name="Probe">
       <a name="facing" val="west"/>
       <a name="radix" val="10unsigned"/>
@@ -78,8 +83,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   </options>
   <mappings>
     <tool lib="6" map="Button2" name="Menu Tool"/>
-    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
     <tool lib="6" map="Button3" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
   </mappings>
   <toolbar>
     <tool lib="6" name="Poke Tool"/>
@@ -110,7 +115,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabelfont" val="SansSerif plain 12"/>
     <appear>
       <rect fill="none" height="20" stroke="#000000" stroke-width="2" width="50" x="240" y="190"/>
-      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="267" y="206">&gt;&gt;2</text>
+      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="264" y="206">&lt;&lt;2</text>
       <circ-port height="8" pin="230,170" width="8" x="236" y="196"/>
       <circ-port height="10" pin="310,180" width="10" x="285" y="195"/>
       <circ-anchor facing="east" height="6" width="6" x="287" y="197"/>
@@ -118,14 +123,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(230,170)" to="(260,170)"/>
     <wire from="(250,190)" to="(260,190)"/>
     <wire from="(300,180)" to="(310,180)"/>
-    <comp lib="0" loc="(230,170)" name="Pin">
-      <a name="width" val="32"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(250,190)" name="Constant">
-      <a name="width" val="5"/>
-      <a name="value" val="0x2"/>
-    </comp>
     <comp lib="0" loc="(310,180)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -134,6 +131,14 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </comp>
     <comp lib="3" loc="(300,180)" name="Shifter">
       <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(250,190)" name="Constant">
+      <a name="width" val="5"/>
+      <a name="value" val="0x2"/>
+    </comp>
+    <comp lib="0" loc="(230,170)" name="Pin">
+      <a name="width" val="32"/>
+      <a name="tristate" val="false"/>
     </comp>
   </circuit>
 </project>
