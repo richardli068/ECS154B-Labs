@@ -39,6 +39,11 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit30" val="none"/>
       <a name="bit31" val="none"/>
     </tool>
+    <tool name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="Cout1"/>
+      <a name="labelloc" val="east"/>
+    </tool>
     <tool name="Probe">
       <a name="facing" val="west"/>
       <a name="radix" val="10unsigned"/>
@@ -78,8 +83,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   </options>
   <mappings>
     <tool lib="6" map="Button2" name="Menu Tool"/>
-    <tool lib="6" map="Button3" name="Menu Tool"/>
     <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
+    <tool lib="6" map="Button3" name="Menu Tool"/>
   </mappings>
   <toolbar>
     <tool lib="6" name="Poke Tool"/>
@@ -109,46 +114,73 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
     <appear>
-      <ellipse cx="250.0" cy="120.0" fill="none" rx="30.0" ry="50.0" stroke="#000000"/>
-      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="251" y="118">Sign</text>
-      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="250" y="130">extend</text>
-      <circ-port height="8" pin="540,210" width="8" x="216" y="116"/>
-      <circ-port height="10" pin="660,320" width="10" x="275" y="115"/>
-      <circ-anchor facing="east" height="6" width="6" x="277" y="117"/>
+      <ellipse cx="250.0" cy="130.0" fill="none" rx="20.0" ry="40.0" stroke="#000000"/>
+      <text font-family="SansSerif" font-size="11" font-weight="bold" text-anchor="middle" x="250" y="129">Sign</text>
+      <text font-family="SansSerif" font-size="11" font-weight="bold" text-anchor="middle" x="250" y="137">extend</text>
+      <circ-port height="8" pin="540,210" width="8" x="226" y="126"/>
+      <circ-port height="10" pin="660,320" width="10" x="265" y="125"/>
+      <circ-anchor facing="east" height="6" width="6" x="257" y="107"/>
     </appear>
     <wire from="(170,190)" to="(170,210)"/>
-    <wire from="(650,320)" to="(660,320)"/>
     <wire from="(170,210)" to="(180,210)"/>
+    <wire from="(650,320)" to="(660,320)"/>
     <wire from="(160,210)" to="(170,210)"/>
-    <wire from="(200,290)" to="(200,300)"/>
-    <wire from="(180,280)" to="(190,280)"/>
     <wire from="(170,190)" to="(240,190)"/>
-    <wire from="(540,210)" to="(550,210)"/>
+    <wire from="(180,280)" to="(190,280)"/>
+    <wire from="(200,290)" to="(200,300)"/>
     <wire from="(220,270)" to="(230,270)"/>
-    <wire from="(180,260)" to="(190,260)"/>
+    <wire from="(540,210)" to="(550,210)"/>
     <wire from="(260,200)" to="(290,200)"/>
+    <wire from="(180,260)" to="(190,260)"/>
     <wire from="(200,210)" to="(200,220)"/>
+    <comp lib="0" loc="(230,270)" name="Tunnel">
+      <a name="width" val="16"/>
+      <a name="label" val="Ext"/>
+    </comp>
+    <comp lib="0" loc="(650,320)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="32"/>
+      <a name="label" val="Instruction 32b"/>
+    </comp>
+    <comp lib="0" loc="(200,220)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="SignSel"/>
+    </comp>
+    <comp lib="0" loc="(180,210)" name="Splitter">
+      <a name="incoming" val="16"/>
+      <a name="appear" val="center"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="0"/>
+      <a name="bit3" val="0"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="0"/>
+      <a name="bit6" val="0"/>
+      <a name="bit7" val="0"/>
+      <a name="bit8" val="0"/>
+      <a name="bit9" val="0"/>
+      <a name="bit10" val="0"/>
+      <a name="bit11" val="0"/>
+      <a name="bit12" val="0"/>
+      <a name="bit13" val="0"/>
+      <a name="bit14" val="0"/>
+      <a name="bit15" val="1"/>
+    </comp>
     <comp lib="0" loc="(180,260)" name="Constant">
       <a name="width" val="16"/>
       <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="0" loc="(290,200)" name="Tunnel">
-      <a name="width" val="32"/>
-      <a name="label" val="Instruction 32b"/>
     </comp>
     <comp lib="0" loc="(200,300)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="label" val="SignSel"/>
     </comp>
-    <comp lib="0" loc="(240,200)" name="Tunnel">
+    <comp lib="0" loc="(660,320)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="32"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(160,210)" name="Tunnel">
       <a name="facing" val="east"/>
-      <a name="width" val="16"/>
-      <a name="label" val="Ext"/>
-    </comp>
-    <comp lib="2" loc="(220,270)" name="Multiplexer">
-      <a name="width" val="16"/>
-    </comp>
-    <comp lib="0" loc="(550,210)" name="Tunnel">
       <a name="width" val="16"/>
       <a name="label" val="Instruction [15-0]"/>
     </comp>
@@ -156,10 +188,22 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="16"/>
       <a name="value" val="0xffff"/>
     </comp>
-    <comp lib="0" loc="(650,320)" name="Tunnel">
-      <a name="facing" val="east"/>
+    <comp lib="0" loc="(290,200)" name="Tunnel">
       <a name="width" val="32"/>
       <a name="label" val="Instruction 32b"/>
+    </comp>
+    <comp lib="0" loc="(240,200)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="16"/>
+      <a name="label" val="Ext"/>
+    </comp>
+    <comp lib="0" loc="(540,210)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(550,210)" name="Tunnel">
+      <a name="width" val="16"/>
+      <a name="label" val="Instruction [15-0]"/>
     </comp>
     <comp lib="0" loc="(260,200)" name="Splitter">
       <a name="facing" val="west"/>
@@ -197,47 +241,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit30" val="1"/>
       <a name="bit31" val="1"/>
     </comp>
-    <comp lib="0" loc="(540,210)" name="Pin">
+    <comp lib="2" loc="(220,270)" name="Multiplexer">
       <a name="width" val="16"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(160,210)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="16"/>
-      <a name="label" val="Instruction [15-0]"/>
-    </comp>
-    <comp lib="0" loc="(180,210)" name="Splitter">
-      <a name="incoming" val="16"/>
-      <a name="appear" val="center"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="0"/>
-      <a name="bit3" val="0"/>
-      <a name="bit4" val="0"/>
-      <a name="bit5" val="0"/>
-      <a name="bit6" val="0"/>
-      <a name="bit7" val="0"/>
-      <a name="bit8" val="0"/>
-      <a name="bit9" val="0"/>
-      <a name="bit10" val="0"/>
-      <a name="bit11" val="0"/>
-      <a name="bit12" val="0"/>
-      <a name="bit13" val="0"/>
-      <a name="bit14" val="0"/>
-      <a name="bit15" val="1"/>
-    </comp>
-    <comp lib="0" loc="(660,320)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="32"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(200,220)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="label" val="SignSel"/>
-    </comp>
-    <comp lib="0" loc="(230,270)" name="Tunnel">
-      <a name="width" val="16"/>
-      <a name="label" val="Ext"/>
     </comp>
   </circuit>
 </project>
