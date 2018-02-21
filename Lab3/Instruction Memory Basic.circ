@@ -127,6 +127,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <text font-family="SansSerif" font-size="14" font-weight="bold" text-anchor="middle" x="91" y="150">memory</text>
       <text font-family="SansSerif" font-size="9" text-anchor="middle" x="108" y="114">[31-0]</text>
       <text font-family="SansSerif" font-size="9" text-anchor="middle" x="74" y="87">address</text>
+      <text font-family="SansSerif" font-size="13" font-style="italic" font-weight="bold" text-anchor="middle" x="109" y="69">Basic</text>
       <circ-port height="8" pin="230,110" width="8" x="46" y="76"/>
       <circ-port height="10" pin="420,110" width="10" x="125" y="105"/>
       <circ-anchor facing="east" height="6" width="6" x="127" y="107"/>
@@ -141,17 +142,17 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
 30300001 18a80 79082
 </a>
     </comp>
-    <comp lib="0" loc="(230,110)" name="Pin">
-      <a name="width" val="8"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="Read address"/>
-    </comp>
     <comp lib="0" loc="(420,110)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="32"/>
       <a name="label" val="Instruction"/>
       <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(230,110)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Read address"/>
     </comp>
   </circuit>
 </project>
