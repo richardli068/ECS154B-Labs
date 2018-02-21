@@ -39,6 +39,11 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit30" val="none"/>
       <a name="bit31" val="none"/>
     </tool>
+    <tool name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="Cout1"/>
+      <a name="labelloc" val="east"/>
+    </tool>
     <tool name="Probe">
       <a name="facing" val="west"/>
       <a name="radix" val="10unsigned"/>
@@ -84,8 +89,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   </options>
   <mappings>
     <tool lib="6" map="Button2" name="Menu Tool"/>
-    <tool lib="6" map="Button3" name="Menu Tool"/>
     <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
+    <tool lib="6" map="Button3" name="Menu Tool"/>
   </mappings>
   <toolbar>
     <tool lib="6" name="Poke Tool"/>
@@ -128,25 +133,25 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </appear>
     <wire from="(390,110)" to="(420,110)"/>
     <wire from="(230,110)" to="(250,110)"/>
-    <comp lib="0" loc="(420,110)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="32"/>
-      <a name="label" val="Instruction"/>
-      <a name="labelloc" val="east"/>
+    <comp lib="4" loc="(390,110)" name="ROM">
+      <a name="dataWidth" val="32"/>
+      <a name="contents">addr/data: 8 32
+20010001 20020002 34030003 34040004 20050005 20060006 20070007 ac01000c
+224020 8c6f0009 224824 825022 a35825 e66026 a6682a c5702a
+30300001 18a80 79082
+</a>
     </comp>
     <comp lib="0" loc="(230,110)" name="Pin">
       <a name="width" val="8"/>
       <a name="tristate" val="false"/>
       <a name="label" val="Read address"/>
     </comp>
-    <comp lib="4" loc="(390,110)" name="ROM">
-      <a name="dataWidth" val="32"/>
-      <a name="contents">addr/data: 8 32
-20010008 34220005 3043ffff 612020 832822 223024 c33826 aca40064
-8ca80064 22482a 1265025 c00000d 200b0001 23ff0018 10c00003 a13022
-800000e 200c0001 3e00008 200d0001 200e0001
-</a>
+    <comp lib="0" loc="(420,110)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="32"/>
+      <a name="label" val="Instruction"/>
+      <a name="labelloc" val="east"/>
     </comp>
   </circuit>
 </project>
