@@ -83,8 +83,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   </options>
   <mappings>
     <tool lib="6" map="Button2" name="Menu Tool"/>
-    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
     <tool lib="6" map="Button3" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
   </mappings>
   <toolbar>
     <tool lib="6" name="Poke Tool"/>
@@ -136,16 +136,16 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <circ-anchor facing="east" height="6" width="6" x="207" y="237"/>
     </appear>
     <wire from="(230,320)" to="(230,330)"/>
-    <wire from="(210,480)" to="(230,480)"/>
     <wire from="(230,200)" to="(230,220)"/>
-    <wire from="(230,320)" to="(250,320)"/>
+    <wire from="(210,480)" to="(230,480)"/>
     <wire from="(210,70)" to="(240,70)"/>
+    <wire from="(230,320)" to="(250,320)"/>
     <wire from="(240,480)" to="(250,480)"/>
     <wire from="(240,480)" to="(240,520)"/>
     <wire from="(230,90)" to="(230,110)"/>
     <wire from="(650,130)" to="(740,130)"/>
-    <wire from="(240,260)" to="(240,290)"/>
     <wire from="(230,150)" to="(230,160)"/>
+    <wire from="(240,260)" to="(240,290)"/>
     <wire from="(650,390)" to="(740,390)"/>
     <wire from="(210,370)" to="(240,370)"/>
     <wire from="(210,410)" to="(240,410)"/>
@@ -162,128 +162,128 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(210,440)" to="(230,440)"/>
     <wire from="(210,260)" to="(240,260)"/>
     <wire from="(230,160)" to="(240,160)"/>
-    <wire from="(240,290)" to="(250,290)"/>
     <wire from="(210,150)" to="(230,150)"/>
+    <wire from="(240,290)" to="(250,290)"/>
     <wire from="(230,200)" to="(240,200)"/>
     <wire from="(230,440)" to="(230,450)"/>
+    <wire from="(1070,290)" to="(1080,290)"/>
     <wire from="(210,290)" to="(230,290)"/>
-    <wire from="(600,120)" to="(610,120)"/>
     <wire from="(230,40)" to="(230,50)"/>
+    <wire from="(600,120)" to="(610,120)"/>
     <wire from="(210,220)" to="(230,220)"/>
-    <wire from="(230,290)" to="(230,300)"/>
+    <wire from="(950,290)" to="(960,290)"/>
     <wire from="(240,330)" to="(240,370)"/>
-    <wire from="(210,110)" to="(230,110)"/>
+    <wire from="(230,290)" to="(230,300)"/>
+    <wire from="(1070,260)" to="(1080,260)"/>
     <wire from="(230,90)" to="(240,90)"/>
+    <wire from="(210,110)" to="(230,110)"/>
     <wire from="(600,380)" to="(610,380)"/>
-    <wire from="(230,470)" to="(230,480)"/>
+    <wire from="(950,260)" to="(960,260)"/>
     <wire from="(210,330)" to="(230,330)"/>
-    <comp lib="3" loc="(210,110)" name="Comparator">
+    <wire from="(230,470)" to="(230,480)"/>
+    <comp lib="0" loc="(430,190)" name="Constant">
+      <a name="width" val="2"/>
+      <a name="value" val="0x2"/>
+    </comp>
+    <comp lib="0" loc="(440,490)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="MEM B Control"/>
+    </comp>
+    <comp lib="0" loc="(290,180)" name="Tunnel">
+      <a name="label" val="Ex B Control"/>
+    </comp>
+    <comp lib="2" loc="(460,80)" name="Multiplexer">
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="0" loc="(170,380)" name="Tunnel">
+      <a name="facing" val="east"/>
       <a name="width" val="5"/>
+      <a name="label" val="ID/EX.Rs"/>
+    </comp>
+    <comp lib="0" loc="(460,180)" name="Tunnel">
+      <a name="width" val="2"/>
+      <a name="label" val="ForwardB Ex"/>
+    </comp>
+    <comp lib="1" loc="(210,480)" name="NOT Gate"/>
+    <comp lib="0" loc="(460,80)" name="Tunnel">
+      <a name="width" val="2"/>
+      <a name="label" val="ForwardA Ex"/>
+    </comp>
+    <comp lib="0" loc="(760,170)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="width" val="2"/>
+      <a name="label" val="ForwardA Ex"/>
     </comp>
     <comp lib="0" loc="(170,360)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="width" val="5"/>
       <a name="label" val="MEM/WB.RegRd"/>
     </comp>
-    <comp lib="0" loc="(140,490)" name="Constant">
+    <comp lib="3" loc="(180,330)" name="Comparator">
       <a name="width" val="2"/>
-      <a name="value" val="0x2"/>
     </comp>
-    <comp lib="0" loc="(300,310)" name="Tunnel">
-      <a name="label" val="MEM A Control"/>
+    <comp lib="2" loc="(460,180)" name="Multiplexer">
+      <a name="width" val="2"/>
     </comp>
-    <comp lib="0" loc="(140,450)" name="Constant">
-      <a name="width" val="5"/>
+    <comp lib="0" loc="(960,290)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="10unsigned"/>
+    </comp>
+    <comp lib="0" loc="(210,150)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="EX/MEM.RegWrite"/>
+    </comp>
+    <comp lib="0" loc="(430,170)" name="Constant">
+      <a name="width" val="2"/>
       <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="2" loc="(650,130)" name="Multiplexer">
+      <a name="select" val="2"/>
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="0" loc="(680,660)" name="Pin">
+      <a name="width" val="5"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="ID/EX.Rs"/>
     </comp>
     <comp lib="0" loc="(630,410)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="width" val="2"/>
       <a name="label" val="ForwardB MEM"/>
     </comp>
-    <comp lib="1" loc="(210,480)" name="NOT Gate"/>
-    <comp lib="0" loc="(680,620)" name="Tunnel">
+    <comp lib="2" loc="(460,320)" name="Multiplexer">
       <a name="width" val="2"/>
-      <a name="label" val="ForwardA"/>
     </comp>
+    <comp lib="3" loc="(210,370)" name="Comparator">
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="1" loc="(210,290)" name="NOT Gate"/>
     <comp lib="0" loc="(140,190)" name="Constant">
       <a name="width" val="5"/>
       <a name="value" val="0x0"/>
     </comp>
-    <comp lib="0" loc="(170,120)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="5"/>
-      <a name="label" val="ID/EX.Rs"/>
-    </comp>
-    <comp lib="0" loc="(140,430)" name="Tunnel">
+    <comp lib="0" loc="(170,510)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="width" val="5"/>
       <a name="label" val="MEM/WB.RegRd"/>
     </comp>
-    <comp lib="0" loc="(460,80)" name="Tunnel">
-      <a name="width" val="2"/>
-      <a name="label" val="ForwardA Ex"/>
+    <comp lib="1" loc="(290,70)" name="AND Gate">
+      <a name="inputs" val="3"/>
     </comp>
-    <comp lib="0" loc="(300,460)" name="Tunnel">
-      <a name="label" val="MEM B Control"/>
+    <comp lib="0" loc="(440,200)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="Ex B Control"/>
     </comp>
-    <comp lib="1" loc="(210,180)" name="NOT Gate"/>
-    <comp lib="0" loc="(430,310)" name="Constant">
-      <a name="width" val="2"/>
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="0" loc="(680,640)" name="Tunnel">
-      <a name="width" val="2"/>
-      <a name="label" val="ForwardB"/>
-    </comp>
-    <comp lib="0" loc="(680,640)" name="Pin">
-      <a name="output" val="true"/>
-      <a name="width" val="2"/>
-      <a name="label" val="ForwardB"/>
-    </comp>
-    <comp lib="0" loc="(140,170)" name="Tunnel">
+    <comp lib="0" loc="(860,660)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="width" val="5"/>
-      <a name="label" val="EX/MEM.RegRd"/>
+      <a name="label" val="MEM/WB.RegRd"/>
     </comp>
-    <comp lib="0" loc="(210,150)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="EX/MEM.RegWrite"/>
-    </comp>
-    <comp lib="0" loc="(740,410)" name="Constant">
-      <a name="width" val="2"/>
-      <a name="value" val="0x2"/>
-    </comp>
-    <comp lib="0" loc="(460,180)" name="Tunnel">
-      <a name="width" val="2"/>
-      <a name="label" val="ForwardB Ex"/>
-    </comp>
-    <comp lib="2" loc="(460,180)" name="Multiplexer">
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="2" loc="(460,470)" name="Multiplexer">
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="3" loc="(180,330)" name="Comparator">
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="2" loc="(460,320)" name="Multiplexer">
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="0" loc="(140,80)" name="Constant">
-      <a name="width" val="5"/>
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="3" loc="(210,220)" name="Comparator">
-      <a name="width" val="5"/>
-    </comp>
-    <comp lib="0" loc="(430,480)" name="Constant">
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="0" loc="(860,680)" name="Pin">
+    <comp lib="0" loc="(860,620)" name="Pin">
       <a name="facing" val="west"/>
+      <a name="width" val="5"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="MEM/WB.RegWrite"/>
+      <a name="label" val="EX/MEM.RegRd"/>
       <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(860,620)" name="Tunnel">
@@ -291,60 +291,147 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="5"/>
       <a name="label" val="EX/MEM.RegRd"/>
     </comp>
-    <comp lib="0" loc="(610,370)" name="Constant">
-      <a name="width" val="2"/>
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="1" loc="(290,70)" name="AND Gate">
-      <a name="inputs" val="3"/>
-    </comp>
-    <comp lib="1" loc="(210,440)" name="NOT Gate"/>
-    <comp lib="0" loc="(290,180)" name="Tunnel">
-      <a name="label" val="Ex B Control"/>
-    </comp>
-    <comp lib="0" loc="(440,340)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="label" val="MEM A Control"/>
-    </comp>
-    <comp lib="0" loc="(440,200)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="label" val="Ex B Control"/>
-    </comp>
-    <comp lib="0" loc="(680,660)" name="Pin">
-      <a name="width" val="5"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="ID/EX.Rs"/>
-    </comp>
-    <comp lib="0" loc="(440,100)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="label" val="Ex A Control"/>
-    </comp>
-    <comp lib="0" loc="(460,320)" name="Tunnel">
-      <a name="width" val="2"/>
-      <a name="label" val="ForwardA MEM"/>
-    </comp>
-    <comp lib="2" loc="(460,80)" name="Multiplexer">
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="0" loc="(430,90)" name="Constant">
+    <comp lib="0" loc="(740,150)" name="Constant">
       <a name="width" val="2"/>
       <a name="value" val="0x2"/>
     </comp>
-    <comp lib="0" loc="(860,640)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="EX/MEM.RegWrite"/>
-      <a name="labelloc" val="east"/>
-    </comp>
+    <comp lib="1" loc="(210,70)" name="NOT Gate"/>
     <comp lib="0" loc="(140,60)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="width" val="5"/>
       <a name="label" val="EX/MEM.RegRd"/>
     </comp>
-    <comp lib="3" loc="(180,290)" name="Comparator">
+    <comp lib="0" loc="(140,320)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="2"/>
+      <a name="label" val="ForwardA Ex"/>
+    </comp>
+    <comp lib="0" loc="(610,110)" name="Constant">
+      <a name="width" val="2"/>
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(140,280)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="5"/>
+      <a name="label" val="MEM/WB.RegRd"/>
+    </comp>
+    <comp lib="0" loc="(600,380)" name="Constant">
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="0" loc="(140,80)" name="Constant">
+      <a name="width" val="5"/>
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(950,290)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="2"/>
+      <a name="label" val="ForwardB MEM"/>
+    </comp>
+    <comp lib="0" loc="(460,320)" name="Tunnel">
+      <a name="width" val="2"/>
+      <a name="label" val="ForwardA MEM"/>
+    </comp>
+    <comp lib="3" loc="(210,520)" name="Comparator">
       <a name="width" val="5"/>
     </comp>
-    <comp lib="0" loc="(140,340)" name="Constant">
+    <comp lib="2" loc="(460,470)" name="Multiplexer">
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="0" loc="(860,640)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="EX/MEM.RegWrite"/>
+    </comp>
+    <comp lib="0" loc="(430,310)" name="Constant">
+      <a name="width" val="2"/>
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(430,480)" name="Constant">
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="0" loc="(210,410)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="MEM/WB.RegWrite"/>
+    </comp>
+    <comp lib="0" loc="(860,660)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="5"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="MEM/WB.RegRd"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1080,260)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="10unsigned"/>
+    </comp>
+    <comp lib="0" loc="(170,120)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="5"/>
+      <a name="label" val="ID/EX.Rs"/>
+    </comp>
+    <comp lib="0" loc="(460,470)" name="Tunnel">
+      <a name="width" val="2"/>
+      <a name="label" val="ForwardB MEM"/>
+    </comp>
+    <comp lib="0" loc="(290,70)" name="Tunnel">
+      <a name="label" val="Ex A Control"/>
+    </comp>
+    <comp lib="2" loc="(780,150)" name="Multiplexer">
+      <a name="select" val="2"/>
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="1" loc="(210,440)" name="NOT Gate"/>
+    <comp lib="0" loc="(1080,290)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="10unsigned"/>
+    </comp>
+    <comp lib="0" loc="(170,230)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="5"/>
+      <a name="label" val="ID/EX.Rt"/>
+    </comp>
+    <comp lib="0" loc="(170,100)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="5"/>
+      <a name="label" val="EX/MEM.RegRd"/>
+    </comp>
+    <comp lib="0" loc="(300,310)" name="Tunnel">
+      <a name="label" val="MEM A Control"/>
+    </comp>
+    <comp lib="0" loc="(680,640)" name="Pin">
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="label" val="ForwardB"/>
+    </comp>
+    <comp lib="0" loc="(430,90)" name="Constant">
+      <a name="width" val="2"/>
+      <a name="value" val="0x2"/>
+    </comp>
+    <comp lib="3" loc="(180,440)" name="Comparator">
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(630,150)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="width" val="2"/>
+      <a name="label" val="ForwardA MEM"/>
+    </comp>
+    <comp lib="0" loc="(140,430)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="5"/>
+      <a name="label" val="MEM/WB.RegRd"/>
+    </comp>
+    <comp lib="0" loc="(440,100)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="Ex A Control"/>
+    </comp>
+    <comp lib="0" loc="(780,150)" name="Tunnel">
+      <a name="width" val="2"/>
+      <a name="label" val="ForwardA"/>
+    </comp>
+    <comp lib="2" loc="(780,410)" name="Multiplexer">
+      <a name="select" val="2"/>
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="0" loc="(140,490)" name="Constant">
       <a name="width" val="2"/>
       <a name="value" val="0x2"/>
     </comp>
@@ -352,61 +439,23 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="2"/>
       <a name="value" val="0x0"/>
     </comp>
-    <comp lib="3" loc="(180,480)" name="Comparator">
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="2" loc="(780,410)" name="Multiplexer">
-      <a name="select" val="2"/>
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="0" loc="(860,640)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="EX/MEM.RegWrite"/>
-    </comp>
-    <comp lib="0" loc="(140,300)" name="Constant">
-      <a name="width" val="5"/>
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="3" loc="(180,440)" name="Comparator">
-      <a name="width" val="5"/>
-    </comp>
-    <comp lib="0" loc="(140,320)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="2"/>
-      <a name="label" val="ForwardA Ex"/>
-    </comp>
-    <comp lib="0" loc="(740,150)" name="Constant">
+    <comp lib="0" loc="(140,340)" name="Constant">
       <a name="width" val="2"/>
       <a name="value" val="0x2"/>
     </comp>
-    <comp lib="0" loc="(760,170)" name="Tunnel">
-      <a name="facing" val="north"/>
+    <comp lib="3" loc="(210,220)" name="Comparator">
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(950,260)" name="Tunnel">
+      <a name="facing" val="east"/>
       <a name="width" val="2"/>
-      <a name="label" val="ForwardA Ex"/>
+      <a name="label" val="ForwardA MEM"/>
+    </comp>
+    <comp lib="3" loc="(180,290)" name="Comparator">
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(600,120)" name="Constant">
       <a name="width" val="2"/>
-    </comp>
-    <comp lib="0" loc="(170,210)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="5"/>
-      <a name="label" val="EX/MEM.RegRd"/>
-    </comp>
-    <comp lib="0" loc="(760,430)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="width" val="2"/>
-      <a name="label" val="ForwardB Ex"/>
-    </comp>
-    <comp lib="1" loc="(210,70)" name="NOT Gate"/>
-    <comp lib="0" loc="(860,660)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="5"/>
-      <a name="label" val="MEM/WB.RegRd"/>
-    </comp>
-    <comp lib="0" loc="(170,230)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="5"/>
-      <a name="label" val="ID/EX.Rt"/>
     </comp>
     <comp lib="0" loc="(140,470)" name="Tunnel">
       <a name="facing" val="east"/>
@@ -417,155 +466,146 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="east"/>
       <a name="label" val="EX/MEM.RegWrite"/>
     </comp>
-    <comp lib="1" loc="(290,180)" name="AND Gate">
-      <a name="inputs" val="3"/>
-    </comp>
-    <comp lib="3" loc="(210,370)" name="Comparator">
-      <a name="width" val="5"/>
-    </comp>
-    <comp lib="0" loc="(600,380)" name="Constant">
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="3" loc="(180,180)" name="Comparator">
-      <a name="width" val="5"/>
-    </comp>
-    <comp lib="0" loc="(610,110)" name="Constant">
-      <a name="width" val="2"/>
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="0" loc="(680,680)" name="Tunnel">
-      <a name="width" val="5"/>
-      <a name="label" val="ID/EX.Rt"/>
-    </comp>
-    <comp lib="0" loc="(780,150)" name="Tunnel">
-      <a name="width" val="2"/>
-      <a name="label" val="ForwardA"/>
-    </comp>
-    <comp lib="0" loc="(290,70)" name="Tunnel">
-      <a name="label" val="Ex A Control"/>
-    </comp>
-    <comp lib="0" loc="(430,170)" name="Constant">
-      <a name="width" val="2"/>
-      <a name="value" val="0x0"/>
-    </comp>
     <comp lib="0" loc="(210,260)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="MEM/WB.RegWrite"/>
     </comp>
-    <comp lib="0" loc="(430,70)" name="Constant">
+    <comp lib="0" loc="(680,640)" name="Tunnel">
       <a name="width" val="2"/>
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="2" loc="(650,390)" name="Multiplexer">
-      <a name="select" val="2"/>
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="0" loc="(430,330)" name="Constant">
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="0" loc="(680,620)" name="Pin">
-      <a name="output" val="true"/>
-      <a name="width" val="2"/>
-      <a name="label" val="ForwardA"/>
-    </comp>
-    <comp lib="1" loc="(300,310)" name="AND Gate">
-      <a name="inputs" val="4"/>
-    </comp>
-    <comp lib="0" loc="(430,190)" name="Constant">
-      <a name="width" val="2"/>
-      <a name="value" val="0x2"/>
-    </comp>
-    <comp lib="0" loc="(440,490)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="label" val="MEM B Control"/>
-    </comp>
-    <comp lib="2" loc="(650,130)" name="Multiplexer">
-      <a name="select" val="2"/>
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="0" loc="(140,280)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="5"/>
-      <a name="label" val="MEM/WB.RegRd"/>
-    </comp>
-    <comp lib="0" loc="(860,680)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="MEM/WB.RegWrite"/>
-    </comp>
-    <comp lib="3" loc="(180,70)" name="Comparator">
-      <a name="width" val="5"/>
-    </comp>
-    <comp lib="0" loc="(630,150)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="width" val="2"/>
-      <a name="label" val="ForwardA MEM"/>
+      <a name="label" val="ForwardB"/>
     </comp>
     <comp lib="0" loc="(780,410)" name="Tunnel">
       <a name="width" val="2"/>
       <a name="label" val="ForwardB"/>
     </comp>
-    <comp lib="3" loc="(210,520)" name="Comparator">
-      <a name="width" val="5"/>
-    </comp>
-    <comp lib="1" loc="(300,460)" name="AND Gate">
-      <a name="inputs" val="4"/>
-    </comp>
-    <comp lib="0" loc="(170,380)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="5"/>
-      <a name="label" val="ID/EX.Rs"/>
-    </comp>
-    <comp lib="0" loc="(680,660)" name="Tunnel">
-      <a name="width" val="5"/>
-      <a name="label" val="ID/EX.Rs"/>
-    </comp>
-    <comp lib="0" loc="(460,470)" name="Tunnel">
+    <comp lib="0" loc="(680,620)" name="Tunnel">
       <a name="width" val="2"/>
-      <a name="label" val="ForwardB MEM"/>
+      <a name="label" val="ForwardA"/>
+    </comp>
+    <comp lib="3" loc="(210,110)" name="Comparator">
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(170,530)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="width" val="5"/>
       <a name="label" val="ID/EX.Rt"/>
     </comp>
-    <comp lib="1" loc="(210,290)" name="NOT Gate"/>
-    <comp lib="0" loc="(210,410)" name="Tunnel">
+    <comp lib="0" loc="(1070,290)" name="Tunnel">
       <a name="facing" val="east"/>
-      <a name="label" val="MEM/WB.RegWrite"/>
+      <a name="width" val="2"/>
+      <a name="label" val="ForwardB Ex"/>
     </comp>
-    <comp lib="1" loc="(210,330)" name="NOT Gate"/>
-    <comp lib="0" loc="(860,660)" name="Pin">
-      <a name="facing" val="west"/>
+    <comp lib="0" loc="(680,660)" name="Tunnel">
       <a name="width" val="5"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="MEM/WB.RegRd"/>
-      <a name="labelloc" val="east"/>
+      <a name="label" val="ID/EX.Rs"/>
+    </comp>
+    <comp lib="0" loc="(440,340)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="MEM A Control"/>
+    </comp>
+    <comp lib="1" loc="(210,180)" name="NOT Gate"/>
+    <comp lib="1" loc="(210,330)" name="NOT Gate"/>
+    <comp lib="0" loc="(430,70)" name="Constant">
+      <a name="width" val="2"/>
+      <a name="value" val="0x0"/>
     </comp>
     <comp lib="0" loc="(680,680)" name="Pin">
       <a name="width" val="5"/>
       <a name="tristate" val="false"/>
       <a name="label" val="ID/EX.Rt"/>
     </comp>
-    <comp lib="0" loc="(860,620)" name="Pin">
+    <comp lib="0" loc="(960,260)" name="Probe">
       <a name="facing" val="west"/>
-      <a name="width" val="5"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="EX/MEM.RegRd"/>
-      <a name="labelloc" val="east"/>
+      <a name="radix" val="10unsigned"/>
     </comp>
-    <comp lib="0" loc="(170,510)" name="Tunnel">
+    <comp lib="0" loc="(170,210)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="width" val="5"/>
-      <a name="label" val="MEM/WB.RegRd"/>
+      <a name="label" val="EX/MEM.RegRd"/>
     </comp>
-    <comp lib="2" loc="(780,150)" name="Multiplexer">
+    <comp lib="0" loc="(860,680)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="MEM/WB.RegWrite"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(300,460)" name="Tunnel">
+      <a name="label" val="MEM B Control"/>
+    </comp>
+    <comp lib="0" loc="(760,430)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="width" val="2"/>
+      <a name="label" val="ForwardB Ex"/>
+    </comp>
+    <comp lib="0" loc="(680,680)" name="Tunnel">
+      <a name="width" val="5"/>
+      <a name="label" val="ID/EX.Rt"/>
+    </comp>
+    <comp lib="0" loc="(430,330)" name="Constant">
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="0" loc="(860,640)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="EX/MEM.RegWrite"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(140,450)" name="Constant">
+      <a name="width" val="5"/>
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="3" loc="(180,180)" name="Comparator">
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="3" loc="(180,480)" name="Comparator">
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="0" loc="(610,370)" name="Constant">
+      <a name="width" val="2"/>
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(140,300)" name="Constant">
+      <a name="width" val="5"/>
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(140,170)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="5"/>
+      <a name="label" val="EX/MEM.RegRd"/>
+    </comp>
+    <comp lib="1" loc="(300,460)" name="AND Gate">
+      <a name="inputs" val="4"/>
+    </comp>
+    <comp lib="0" loc="(680,620)" name="Pin">
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="label" val="ForwardA"/>
+    </comp>
+    <comp lib="1" loc="(290,180)" name="AND Gate">
+      <a name="inputs" val="3"/>
+    </comp>
+    <comp lib="2" loc="(650,390)" name="Multiplexer">
       <a name="select" val="2"/>
       <a name="width" val="2"/>
     </comp>
-    <comp lib="0" loc="(170,100)" name="Tunnel">
+    <comp lib="0" loc="(860,680)" name="Tunnel">
       <a name="facing" val="east"/>
+      <a name="label" val="MEM/WB.RegWrite"/>
+    </comp>
+    <comp lib="0" loc="(1070,260)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="2"/>
+      <a name="label" val="ForwardA Ex"/>
+    </comp>
+    <comp lib="1" loc="(300,310)" name="AND Gate">
+      <a name="inputs" val="4"/>
+    </comp>
+    <comp lib="3" loc="(180,70)" name="Comparator">
       <a name="width" val="5"/>
-      <a name="label" val="EX/MEM.RegRd"/>
+    </comp>
+    <comp lib="0" loc="(740,410)" name="Constant">
+      <a name="width" val="2"/>
+      <a name="value" val="0x2"/>
     </comp>
   </circuit>
 </project>
