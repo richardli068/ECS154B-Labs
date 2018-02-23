@@ -126,27 +126,43 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(130,120)" to="(140,120)"/>
     <wire from="(500,150)" to="(510,150)"/>
     <wire from="(400,150)" to="(410,150)"/>
-    <comp lib="0" loc="(450,120)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="label" val="CLK"/>
+    <comp lib="0" loc="(400,150)" name="Pin">
+      <a name="width" val="4"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(130,120)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="4"/>
+      <a name="label" val="In"/>
+    </comp>
+    <comp lib="0" loc="(510,150)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="4"/>
+      <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(500,150)" name="Tunnel">
       <a name="facing" val="east"/>
-      <a name="width" val="2"/>
+      <a name="width" val="4"/>
       <a name="label" val="Out"/>
     </comp>
     <comp lib="0" loc="(180,120)" name="Tunnel">
-      <a name="width" val="2"/>
+      <a name="width" val="4"/>
       <a name="label" val="Out"/>
     </comp>
-    <comp lib="4" loc="(170,120)" name="Register">
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="0" loc="(410,150)" name="Tunnel">
-      <a name="width" val="2"/>
-      <a name="label" val="In"/>
+    <comp lib="0" loc="(450,170)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="tristate" val="false"/>
     </comp>
     <comp lib="0" loc="(150,140)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="CLK"/>
+    </comp>
+    <comp lib="0" loc="(450,170)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="label" val="CLK"/>
+    </comp>
+    <comp lib="0" loc="(450,120)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="label" val="CLK"/>
     </comp>
@@ -155,27 +171,11 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(450,170)" name="Tunnel">
-      <a name="facing" val="south"/>
-      <a name="label" val="CLK"/>
+    <comp lib="4" loc="(170,120)" name="Register">
+      <a name="width" val="4"/>
     </comp>
-    <comp lib="0" loc="(400,150)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(450,170)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(510,150)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="2"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(130,120)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="2"/>
+    <comp lib="0" loc="(410,150)" name="Tunnel">
+      <a name="width" val="4"/>
       <a name="label" val="In"/>
     </comp>
   </circuit>
