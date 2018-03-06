@@ -12,15 +12,16 @@ int main(int argc, char *argv[])
     Memory m(8);
     p.setMemory(&m);
 //    DirectMappedCache c(1 << 10, m, p);
-  SetAssociativeCache c(1 << 10, m, p, 1);
-    std::cout << "Running simulation" << std::endl;
-    TickedObject::runSimulation();
-    std::cout << "Simulation done" << std::endl;
+ SetAssociativeCache c =  SetAssociativeCache(1 << 10, m, p, 2);
 
-    std::cout << "Data size: ";
-    std::cout << ((float)SRAMArray::getTotalSize())/1024 << "KB" << std::endl;
-
-    std::cout << "Tag size: ";
-    std::cout << ((float)TagArray::getTotalSize())/1024 << "KB" << std::endl;
+//    std::cout << "Running simulation" << std::endl;
+//    TickedObject::runSimulation();
+//    std::cout << "Simulation done" << std::endl;
+//
+//    std::cout << "Data size: ";
+//    std::cout << ((float)SRAMArray::getTotalSize())/1024 << "KB" << std::endl;
+//
+//    std::cout << "Tag size: ";
+//    std::cout << ((float)TagArray::getTotalSize())/1024 << "KB" << std::endl;
 
 }

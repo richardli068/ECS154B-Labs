@@ -48,7 +48,7 @@ public:
   virtual void receiveMemResponse(int request_id, const uint8_t* data)
   override;
   
-private:
+protected:
   /// Put any code you want here.
   struct MSHR {
     /// This is the current request_id that is blocking the cache.

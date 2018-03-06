@@ -55,7 +55,7 @@ SetAssociativeCache::receiveRequest(uint64_t address, int size,
     // write
     if (data)
     {
-      memcpy(&line[block_offset], data, size);
+      std::memcpy(&line[block_offset], data, size);
       sendResponse(request_id, nullptr);
       tagArrayVec[hitIndex]->setState(set, Dirty);
     }
@@ -103,7 +103,7 @@ SetAssociativeCache::receiveMemResponse(int request_id, const uint8_t* data)
   int set = (int) getSet(mshr.savedAddr);
   int evictIndex = mshr.savedEvictIndex;
   uint8_t* line = dataArrayVec[evictIndex]->getLine(set);
-  memcpy(line, data, memory.getLineSize());
+  std::memcpy(line, data, memory.getLineSize());
   
   assert(tagArrayVec[evictIndex]->getState(set) == Invalid);
   
