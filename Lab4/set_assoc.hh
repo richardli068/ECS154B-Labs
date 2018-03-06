@@ -88,5 +88,7 @@ protected:
   uint64_t getSet(uint64_t addr);
   uint64_t getBlockOffset(uint64_t addr);
 
-  
+  void clearMSHR();
+  void setMSHR(const MSHR mshr);
+  MSHR getMSHR();
 };

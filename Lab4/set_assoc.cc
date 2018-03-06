@@ -197,4 +197,21 @@ uint64_t SetAssociativeCache::getBlockOffset(uint64_t addr)
 }
 
 
+void SetAssociativeCache::clearMSHR()
+{
+  mshr.savedId = -1;
+  mshr.savedAddr = 0;
+  mshr.savedSize = 0;
+  mshr.savedEvictIndex = -1;
+  mshr.savedData = nullptr;
+}
 
+void SetAssociativeCache::setMSHR(const MSHR msh)
+{
+  mshr = msh;
+}
+
+SetAssociativeCache::MSHR SetAssociativeCache::getMSHR()
+{
+  return mshr;
+}
