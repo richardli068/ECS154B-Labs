@@ -1,5 +1,6 @@
 
 #include <cassert>
+#include <cstring>
 
 #include "set_assoc.hh"
 #include "memory.hh"
