@@ -1,5 +1,6 @@
 
 #include "set_assoc.hh"
+#include <vector>
 
 class NonBlockingCache: public SetAssociativeCache
 {
@@ -48,4 +49,7 @@ class NonBlockingCache: public SetAssociativeCache
 
   private:
     /// Put any code you want here.
+    int max_mshr_requests = 0;
+
+    std::vector<SetAssociativeCache::MSHR> lookup_table;
 };
