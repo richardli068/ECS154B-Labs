@@ -1,6 +1,7 @@
 
 #include <cassert>
 #include <cstring>
+#include <ctime>
 
 #include "set_assoc.hh"
 #include "memory.hh"
@@ -11,7 +12,8 @@ SetAssociativeCache::SetAssociativeCache(int64_t size, Memory& memory,
                                          Processor& processor, int ways)
 : Cache(size, memory, processor),
 tagBits(processor.getAddrSize() - log2int(size / memory.getLineSize() / ways) -
-        memory.getLineBits()), setMask(size / memory.getLineSize() / ways - 1),
+        memory.getLineBits()),
+setMask(size / memory.getLineSize() / ways - 1),
 way(ways), blocked(false), mshr({-1,0,0,-1,nullptr})
 {
   assert(ways > 0);
@@ -59,6 +61,7 @@ SetAssociativeCache::receiveRequest(uint64_t address, int size,
       std::memcpy(&line[block_offset], data, size);
       sendResponse(request_id, nullptr);
       tagArrayVec[hitIndex]->setState(set, Dirty);
+      tagMap[set]++;
     }
     else // read
     {
@@ -67,27 +70,39 @@ SetAssociativeCache::receiveRequest(uint64_t address, int size,
   }
   else // miss
   {
-    // random evict
-    int evictIndex = rand() % way;
-    mshr.savedEvictIndex = evictIndex;
-    // since miss, randomly select a line in set.
-    DPRINT("Miss in cache " << tagArrayVec[evictIndex]->getState(set));
-    if (dirty(address))
+    int insertIndex;
+    if (tagMap[set] < way) // set still has space
     {
-      DPRINT("Dirty, writing back");
-      
-      uint8_t* line = dataArrayVec[evictIndex]->getLine(set);
-      uint64_t wb_address = tagArrayVec[evictIndex]->getTag(set) << (processor.getAddrSize() - tagBits);
-      wb_address |= (set << memory.getLineBits());
-      sendMemRequest(wb_address, memory.getLineSize(), line, -1);
+      insertIndex = tagMap[set];
+      DPRINT("Miss in cache " << tagArrayVec[insertIndex]->getState(set));
+      tagMap[set]++;
     }
-    tagArrayVec[evictIndex]->setState(set, Invalid);
+    else // need to evict
+    {
+      // random evict
+      srand((unsigned int) time(NULL));
+      insertIndex = rand() % way;
+      
+      DPRINT("Miss in cache " << tagArrayVec[insertIndex]->getState(set));
+      if (dirty(address))
+      {
+        DPRINT("Dirty, writing back");
+        
+        uint8_t* line = dataArrayVec[insertIndex]->getLine(set);
+        uint64_t wb_address = tagArrayVec[insertIndex]->getTag(set) <<
+                                    (processor.getAddrSize() - tagBits);
+        wb_address |= (set << memory.getLineBits());
+        sendMemRequest(wb_address, memory.getLineSize(), line, -1);
+      }
+    }
+    tagArrayVec[insertIndex]->setState(set, Invalid);
     uint64_t block_address = address & ~(memory.getLineSize() -1);
     sendMemRequest(block_address, memory.getLineSize(), nullptr, 0);
     
     mshr.savedId = request_id;
     mshr.savedAddr = address;
     mshr.savedSize = size;
+    mshr.savedInsertIndex = insertIndex;
     mshr.savedData = data;
     
     blocked = true;
@@ -102,15 +117,15 @@ SetAssociativeCache::receiveMemResponse(int request_id, const uint8_t* data)
   assert(data);
   
   int set = (int) getSet(mshr.savedAddr);
-  int evictIndex = mshr.savedEvictIndex;
-  uint8_t* line = dataArrayVec[evictIndex]->getLine(set);
+  int insertIndex = mshr.savedInsertIndex;
+  uint8_t* line = dataArrayVec[insertIndex]->getLine(set);
   std::memcpy(line, data, memory.getLineSize());
   
-  assert(tagArrayVec[evictIndex]->getState(set) == Invalid);
+  assert(tagArrayVec[insertIndex]->getState(set) == Invalid);
   
-  tagArrayVec[evictIndex]->setState(set, Valid);
+  tagArrayVec[insertIndex]->setState(set, Valid);
   
-  tagArrayVec[evictIndex]->setTag(set, getTag(mshr.savedAddr));
+  tagArrayVec[insertIndex]->setTag(set, getTag(mshr.savedAddr));
   
   int block_offset = (int) getBlockOffset(mshr.savedAddr);
   
@@ -118,11 +133,11 @@ SetAssociativeCache::receiveMemResponse(int request_id, const uint8_t* data)
   {
     memcpy(&line[block_offset], mshr.savedData, mshr.savedSize);
     sendResponse(mshr.savedId, nullptr);
-    
-    tagArrayVec[evictIndex]->setState(set, Dirty);
+    tagArrayVec[insertIndex]->setState(set, Dirty);
   }
   else // read
   {
+    // Invalid implies not Dirty
     sendResponse(mshr.savedId, &line[block_offset]);
   }
   
@@ -130,7 +145,7 @@ SetAssociativeCache::receiveMemResponse(int request_id, const uint8_t* data)
   mshr.savedId = -1;
   mshr.savedAddr = 0;
   mshr.savedSize = 0;
-  mshr.savedEvictIndex = -1;
+  mshr.savedInsertIndex = -1;
   mshr.savedData = nullptr;
 }
 
@@ -173,14 +188,6 @@ bool SetAssociativeCache::dirty(uint64_t addr)
   return false;
 }
 
-void SetAssociativeCache::setInvalid(int set)
-{
-  for (int i = 0; i < tagArrayVec.size(); i++)
-  {
-    tagArrayVec[i]->setState(set, Invalid);
-  }
-}
-
 uint64_t SetAssociativeCache::getTag(uint64_t addr)
 {
   return addr >> (processor.getAddrSize() - tagBits);
@@ -202,7 +209,7 @@ void SetAssociativeCache::clearMSHR()
   mshr.savedId = -1;
   mshr.savedAddr = 0;
   mshr.savedSize = 0;
-  mshr.savedEvictIndex = -1;
+  mshr.savedInsertIndex = -1;
   mshr.savedData = nullptr;
 }
 

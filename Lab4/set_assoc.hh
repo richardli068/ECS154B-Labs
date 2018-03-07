@@ -1,4 +1,6 @@
 #include <vector>
+#include <map>
+
 #include "cache.hh"
 #include "tag_array.hh"
 #include "sram_array.hh"
@@ -7,10 +9,10 @@ class SetAssociativeCache: public Cache
 {
 public:
   /**
-   * @param size is the *total* size of the cache in bytes
-   * @param the memory that is below this cache
-   * @param processor this cache is connected to
-   * @param the number of ways in this set associative cache. If the number
+   * @param size : the *total* size of the cache in bytes
+   * @param memory : the memory that is below this cache
+   * @param processor : the processor this cache is connected to
+   * @param ways : number of ways in this set associative cache. If the number
    *        of ways cannot be realized, this will cause an error
    */
   SetAssociativeCache(int64_t size, Memory& memory, Processor& processor,
@@ -60,7 +62,7 @@ protected:
     /// This is the size of the original request. Needed for writes.
     int savedSize;
     
-    int savedEvictIndex;
+    int savedInsertIndex;
     
     /// This is the data that will be written after a miss
     const uint8_t* savedData;
@@ -76,6 +78,7 @@ protected:
   uint64_t setMask;
   std::vector<TagArray*> tagArrayVec;
   std::vector<SRAMArray*> dataArrayVec;
+  std::map<uint64_t, int> tagMap;
   int way;
   bool blocked;
   MSHR mshr;
@@ -83,11 +86,10 @@ protected:
   bool hit(uint64_t addr);
   int hitArray(uint64_t addr);
   bool dirty(uint64_t addr);
-  void setInvalid(int set);
   uint64_t getTag(uint64_t addr);
   uint64_t getSet(uint64_t addr);
   uint64_t getBlockOffset(uint64_t addr);
-
+  
   void clearMSHR();
   void setMSHR(const MSHR mshr);
   MSHR getMSHR();
