@@ -84,7 +84,7 @@ SetAssociativeCache::receiveRequest(uint64_t address, int size,
       insertIndex = rand() % way;
       
       DPRINT("Miss in cache " << tagArrayVec[insertIndex]->getState(set));
-      if (dirty(address))
+      if (dirty(address, insertIndex))
       {
         DPRINT("Dirty, writing back");
         
@@ -176,14 +176,11 @@ int SetAssociativeCache::hitArray(uint64_t addr)
   return index;
 }
 
-bool SetAssociativeCache::dirty(uint64_t addr)
+bool SetAssociativeCache::dirty(uint64_t addr, int index)
 {
   int set = (int) getSet(addr);
-  for (int i = 0; i < tagArrayVec.size(); i++)
-  {
-    State state = (State) tagArrayVec[i]->getState(set);
-    if (state == Dirty) return true;
-  }
+  State state = (State) tagArrayVec[index]->getState(set);
+  if (state == Dirty) return true;
   // NOTE: if one TagArray is dirty, all tagArrays for this set is dirty.
   return false;
 }

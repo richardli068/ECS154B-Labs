@@ -85,7 +85,7 @@ protected:
   
   bool hit(uint64_t addr);
   int hitArray(uint64_t addr);
-  bool dirty(uint64_t addr);
+  bool dirty(uint64_t addr, int index);
   uint64_t getTag(uint64_t addr);
   uint64_t getSet(uint64_t addr);
   uint64_t getBlockOffset(uint64_t addr);
