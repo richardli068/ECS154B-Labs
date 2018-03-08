@@ -181,7 +181,6 @@ bool SetAssociativeCache::dirty(uint64_t addr, int index)
   int set = (int) getSet(addr);
   State state = (State) tagArrayVec[index]->getState(set);
   if (state == Dirty) return true;
-  // NOTE: if one TagArray is dirty, all tagArrays for this set is dirty.
   return false;
 }
 
