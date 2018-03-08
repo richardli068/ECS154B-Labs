@@ -66,6 +66,14 @@ protected:
     
     /// This is the data that will be written after a miss
     const uint8_t* savedData;
+    
+    bool operator==(MSHR rhs) const
+    {
+      if (savedId == rhs.savedId && savedAddr == rhs.savedAddr
+          && savedInsertIndex == rhs.savedInsertIndex
+          && savedSize == rhs.savedSize) return true;
+      else return false;
+    }
   };
   
   enum State {
@@ -81,7 +89,7 @@ protected:
   std::map<uint64_t, int> tagMap;
   int way;
   bool blocked;
-  MSHR mshr;
+  const MSHR mshrVoid;
   
   bool hit(uint64_t addr);
   int hitArray(uint64_t addr);
@@ -93,4 +101,7 @@ protected:
   void clearMSHR();
   void setMSHR(const MSHR mshr);
   MSHR getMSHR();
+  
+private:
+  MSHR mshr;
 };

@@ -14,7 +14,8 @@ SetAssociativeCache::SetAssociativeCache(int64_t size, Memory& memory,
 tagBits(processor.getAddrSize() - log2int(size / memory.getLineSize() / ways) -
         memory.getLineBits()),
 setMask(size / memory.getLineSize() / ways - 1),
-way(ways), blocked(false), mshr({-1,0,0,-1,nullptr})
+way(ways), blocked(false), mshr({-1,0,0,-1,nullptr}),
+mshrVoid({-1,0,0,-1,nullptr})
 {
   assert(ways > 0);
   for (int i = 0; i < ways; i++)
