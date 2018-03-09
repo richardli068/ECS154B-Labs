@@ -74,6 +74,15 @@ protected:
           && savedSize == rhs.savedSize) return true;
       else return false;
     }
+    
+    void destory()
+    {
+      savedId = -1;
+      savedAddr = 0;
+      savedSize = 0;
+      savedInsertIndex = -1;
+      savedData = nullptr;
+    }
   };
   
   enum State {
@@ -82,6 +91,7 @@ protected:
     Invalid2=2,
     Dirty=3 // Dirty implies valid
   };
+  
   uint64_t tagBits;
   uint64_t setMask;
   std::vector<TagArray*> tagArrayVec;
@@ -97,10 +107,6 @@ protected:
   uint64_t getTag(uint64_t addr);
   uint64_t getSet(uint64_t addr);
   uint64_t getBlockOffset(uint64_t addr);
-  
-  void clearMSHR();
-  void setMSHR(const MSHR mshr);
-  MSHR getMSHR();
   
 private:
   MSHR mshr;

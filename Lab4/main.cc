@@ -2,7 +2,8 @@
 #include <iostream>
 
 #include "direct_mapped.hh"
-#include "set_assoc.hh"
+//#include "set_assoc.hh"
+#include "non_blocking.hh"
 #include "memory.hh"
 #include "processor.hh"
 
@@ -12,7 +13,8 @@ int main(int argc, char *argv[])
     Memory m(8);
     p.setMemory(&m);
 //    DirectMappedCache c(1 << 10, m, p);
-    SetAssociativeCache c(1 << 10, m, p, 2);
+//    SetAssociativeCache c(1 << 10, m, p, 128);
+  NonBlockingCache c(1 << 10, m, p, 4, 2);
   
     std::cout << "Running simulation" << std::endl;
     TickedObject::runSimulation();
