@@ -6,28 +6,25 @@
 #include <map>
 #include <queue>
 #include <utility>
+#include <string>
 
 #include "cache.hh"
 #include "ticked_object.hh"
+#include "record_store.hh"
 
 class Processor: public TickedObject
 {
-  private:
+  protected:
+    int addressSize;
+
     Cache *cache;
     Memory *memory;
 
-    struct Record {
-        int64_t ticksFromNow;
-        bool write;
-        uint64_t address;
-        int requestId;
-        int size;
-        uint8_t* data;
-    };
+    RecordStore *records;
 
-    std::queue<Record> trace;
+    std::queue<Record*> trace;
 
-    std::map<int, Record> outstanding;
+    std::map<int, Record*> outstanding;
 
     void sendRequest(Record &r);
 
@@ -40,8 +37,13 @@ class Processor: public TickedObject
     void checkData(Record &record, const uint8_t* cache_data);
 
   public:
-    Processor();
+    Processor(int addrSize = 32);
     ~Processor();
+
+    /**
+     * Called to schedule the processor to run in the simulation.
+     */
+    void scheduleForSimulation();
 
     /**
      * Called by the cache when it sends a response.
@@ -59,7 +61,12 @@ class Processor: public TickedObject
     /**
      * Connect memory for debugging and checking purposes
      */
-    void setMemory(Memory *memory) {this->memory = memory; }
+    void setMemory(Memory *memory) { this->memory = memory; }
+
+    /**
+     * Connect a record store (like an instruction ROM)
+     */
+    void setRecords(RecordStore *recordStore) { this->records = recordStore; }
 
     /**
      * @return the number of bits in the address
