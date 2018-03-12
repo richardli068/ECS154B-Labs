@@ -199,16 +199,3 @@ uint64_t SetAssociativeCache::getBlockOffset(uint64_t addr)
   return addr & (memory.getLineSize() -  1);
 }
 
-SetAssociativeCache::MSHR& SetAssociativeCache::setMSHR(int id, uint64_t addr
-                                                       , int size, int index
-                                                       , const uint8_t* data)
-{
-  MSHR m;
-  m.savedId = id;
-  m.savedAddr = addr;
-  m.savedSize = size;
-  m.savedInsertIndex = index;
-  m.savedData = data;
-  return m;
-}
-
