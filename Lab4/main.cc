@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     }
 
     Processor p(32);
-    Memory m(16);
+    Memory m(8);
     RecordStore records(recordFile);
     if (!records.loadRecords()) {
         std::cerr << "Could not load file: " << recordFile << std::endl;
@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     p.setRecords(&records);
 //    DirectMappedCache c(1 << 10, m, p);
 //  SetAssociativeCache c(1 << 10, m, p, 1);
-  NonBlockingCache c(1 << 10, m, p, 2, 2);
+  NonBlockingCache c(1 << 10, m, p, 1, 1);
     p.scheduleForSimulation();
 
     std::cout << "Running simulation" << std::endl;

@@ -75,6 +75,16 @@ protected:
       else return false;
     }
     
+    MSHR& operator=(const MSHR & rhs)
+    {
+      savedId = rhs.savedId;
+      savedAddr = rhs.savedAddr;
+      savedSize = rhs.savedSize;
+      savedInsertIndex = rhs.savedInsertIndex;
+      savedData = rhs.savedData;
+      return *this;
+    }
+    
     void destory()
     {
       savedId = -1;
@@ -108,6 +118,7 @@ protected:
   uint64_t getSet(uint64_t addr);
   uint64_t getBlockOffset(uint64_t addr);
   
+  MSHR& setMSHR(int id, uint64_t addr, int size, int index, const uint8_t* data);
 private:
   MSHR mshr;
 };

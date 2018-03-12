@@ -62,7 +62,6 @@ SetAssociativeCache::receiveRequest(uint64_t address, int size,
       std::memcpy(&line[block_offset], data, size);
       sendResponse(request_id, nullptr);
       tagArrayVec[hitIndex]->setState(set, Dirty);
-      tagMap[set]++;
     }
     else // read
     {
@@ -200,4 +199,16 @@ uint64_t SetAssociativeCache::getBlockOffset(uint64_t addr)
   return addr & (memory.getLineSize() -  1);
 }
 
+SetAssociativeCache::MSHR& SetAssociativeCache::setMSHR(int id, uint64_t addr
+                                                       , int size, int index
+                                                       , const uint8_t* data)
+{
+  MSHR m;
+  m.savedId = id;
+  m.savedAddr = addr;
+  m.savedSize = size;
+  m.savedInsertIndex = index;
+  m.savedData = data;
+  return m;
+}
 

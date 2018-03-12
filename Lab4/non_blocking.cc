@@ -46,7 +46,6 @@ NonBlockingCache::receiveRequest(uint64_t address, int size,
       std::memcpy(&line[block_offset], data, size);
       sendResponse(request_id, nullptr);
       tagArrayVec[hitIndex]->setState(set, Dirty);
-      tagMap[set]++;
     }
     else // read
     {
@@ -137,8 +136,6 @@ NonBlockingCache::receiveMemResponse(int request_id, const uint8_t* data)
   {
     insertIndex = hitArray(lt_it->savedAddr);
     line = dataArrayVec[insertIndex]->getLine(set);
-    // if previous MSHR resolve current one, free 1 tag array
-    tagMap[set]--;
   }
   
   int block_offset = (int) getBlockOffset(lt_it->savedAddr);
